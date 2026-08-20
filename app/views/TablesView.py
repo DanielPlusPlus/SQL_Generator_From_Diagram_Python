@@ -8,7 +8,6 @@ class TablesView:
     def __init__(self, TablesModel, ParentWindow):
         self.__TablesModel = TablesModel
         self.__ParentWindow = ParentWindow
-        self.drawTables()
 
     def drawTempTable(self, position, scaleFactor, width=100, rowsHeight=20, rowsNumber=5):
         CreatedTable = TableModel(position.x(), position.y(), scaleFactor, width, rowsHeight, rowsNumber, 0)

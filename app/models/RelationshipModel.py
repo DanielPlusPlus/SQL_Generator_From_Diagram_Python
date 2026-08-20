@@ -3,7 +3,7 @@ from app.models.ConnectionModel import ConnectionModel
 
 class RelationshipModel(ConnectionModel):
     def __init__(self, FirstTable, SecondTable, firstSelectedColumnName, secondSelectedColumnName, relationshipType,
-                 scaleFactor):
+                 scaleFactor=1):
         super().__init__(FirstTable, SecondTable)
         self.__firstSelectedColumnName = firstSelectedColumnName
         self.__secondSelectedColumnName = secondSelectedColumnName

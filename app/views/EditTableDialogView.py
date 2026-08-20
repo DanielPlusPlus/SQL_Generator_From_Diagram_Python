@@ -75,7 +75,7 @@ class EditTableDialogView(QDialog):
         self.__horizontalLayout_5.setStretch(0, 5)
         self.__horizontalLayout_5.setStretch(1, 5)
         self.__gridLayout.addLayout(self.__horizontalLayout_5, 1, 2, 1, 1)
-
+        # do poprawy numeracja
         self.__horizontalLayout_7 = QHBoxLayout()
         self.tableView = QTableView(self)
         self.tableView.setFrameShape(QFrame.Shape.StyledPanel)

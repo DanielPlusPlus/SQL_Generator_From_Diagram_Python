@@ -16,4 +16,4 @@ class LoadSQLControllersFactory:
     @staticmethod
     def createController(TablesModel, RelationshipsModel, InheritancesModel, DatabaseType):
         CreatedControllerClass = LoadSQLControllersFactory.__controllers[DatabaseType]
-        return CreatedControllerClass(TablesModel, RelationshipsModel, InheritancesModel, DatabaseType)
+        return CreatedControllerClass(1, TablesModel, RelationshipsModel, InheritancesModel)

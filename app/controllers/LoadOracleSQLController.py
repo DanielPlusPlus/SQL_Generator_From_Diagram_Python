@@ -68,7 +68,7 @@ class LoadOracleSQLController(LoadSQLControllerInterface):
         raw_lines = [l.strip() for l in body.split(',') if l.strip()]
 
         x, y = self.__next_table_position()
-        table_model = TableModel(x + 100, y + 100, 100, 20, 5, self.__TablesModel.tableNumber)
+        table_model = TableModel(x + 100, y + 100, 1.0, 100, 20, 5, self.__TablesModel.tableNumber)
         table_model.editTableName(table_name)
 
         self.__TablesModel.tables.append(table_model)

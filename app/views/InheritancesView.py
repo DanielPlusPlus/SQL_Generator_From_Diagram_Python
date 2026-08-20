@@ -6,10 +6,9 @@ from app.models.InheritanceModel import InheritanceModel
 
 
 class InheritancesView:
-    def __init__(self, InheritanceModel, ParentWindow):
-        self.__InheritanceModel = InheritanceModel
+    def __init__(self, InheritancesModel, ParentWindow):
+        self.__InheritancesModel = InheritancesModel
         self.__ParentWindow = ParentWindow
-        self.drawInheritances()
 
     def __getTableRect(self, table):
         if table.getTableCollapseStatus():
@@ -20,7 +19,7 @@ class InheritancesView:
         painter = QPainter(self.__ParentWindow)
         painter.setRenderHint(QPainter.Antialiasing)
 
-        for inheritance in self.__InheritanceModel.getInheritances():
+        for inheritance in self.__InheritancesModel.getInheritances():
             line_thickness = inheritance.getLineThickness()
             painter.setPen(QPen(QColor(inheritance.getColor()), line_thickness, Qt.SolidLine))
             child_rect = self.__getTableRect(inheritance.FirstTable)

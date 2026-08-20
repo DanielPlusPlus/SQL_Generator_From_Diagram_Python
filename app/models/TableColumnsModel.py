@@ -6,7 +6,7 @@ class TableColumnsModel(QAbstractTableModel):
     def __init__(self, columns=None):
         super().__init__()
         self.__columns = columns or []
-        self.isEditColumnsSelected = False
+        self.__isEditColumnsSelected = False
 
     @override
     def rowCount(self, parent=QModelIndex()):
@@ -52,15 +52,14 @@ class TableColumnsModel(QAbstractTableModel):
             return Qt.NoItemFlags
 
         baseFlags = Qt.ItemIsSelectable | Qt.ItemIsEnabled
-        if self.isEditColumnsSelected:
+        if self.__isEditColumnsSelected:
             if index.column() in (0, 1, 2):
                 return baseFlags | Qt.ItemIsEditable
             if index.column() in (3, 4, 5):
                 return baseFlags | Qt.ItemIsUserCheckable
             if index.column() == 6:
                 return baseFlags
-        else:
-            return baseFlags
+        return baseFlags
 
     @override
     def setData(self, index, value, role=Qt.EditRole):
@@ -133,11 +132,11 @@ class TableColumnsModel(QAbstractTableModel):
         return False
 
     def toggleEditColumns(self):
-        self.isEditColumnsSelected = not self.isEditColumnsSelected
+        self.__isEditColumnsSelected = not self.__isEditColumnsSelected
         self.__emitAllDataChanges()
 
     def getColumns(self):
         return self.__columns
 
     def getEditColumnsStatus(self):
-        return self.isEditColumnsSelected
+        return self.__isEditColumnsSelected

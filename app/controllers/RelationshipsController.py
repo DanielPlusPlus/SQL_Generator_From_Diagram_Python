@@ -116,7 +116,7 @@ class RelationshipsController(ConnectionsController):
                 self.__RelationshipsModel.deleteSelectedRelationship(ObtainedRelationship)
 
     def deleteRelationshipByTable(self, ObtainedTable):
-        self.__RelationshipsModel.deleteSelectedRelationshipByTable(ObtainedTable)
+        self.__RelationshipsModel.deleteRelationshipByTable(ObtainedTable)
 
     def changeRelationshipColor(self, cursorPosition):
         ObtainedRelationship = self.__RelationshipsModel.getRelationshipFromPosition(cursorPosition)

@@ -52,7 +52,7 @@ class MSSQLConnectionParamsDialogView(QDialog, ConnectionParamsDialogInterface):
         self.__gridLayout.addLayout(self.__horizontalLayout_2, 1, 0, 1, 1)
 
         self.__horizontalLayout_3 = QHBoxLayout()
-        self.__serverLabel = QLabel(u"Host", self)
+        self.__serverLabel = QLabel(u"Server", self)
         self.__serverLabel.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.serverLineEdit = QLineEdit(self)
         serverValidator = QRegularExpressionValidator(self.__serverRegex, self.serverLineEdit)

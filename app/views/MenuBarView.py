@@ -1,5 +1,6 @@
 from PySide6.QtWidgets import QMenuBar, QMenu
 from PySide6.QtGui import QAction, QIcon
+from app.resources import resource_path
 
 
 class MenuBarView(QMenuBar):
@@ -15,7 +16,7 @@ class MenuBarView(QMenuBar):
         self.__menuTables = QMenu(u"Tables", self)
         self.__menuConnections = QMenu(u"Connections", self)
         self.__menuRelationships = QMenu(u"Relationships", self)
-        self.__menuRelationships.setIcon(QIcon("app\\icons\\relationship.png"))
+        self.__menuRelationships.setIcon(QIcon(resource_path("icons", "relationship.png")))
 
         self.actionImportOracleSQL = QAction(u"Import Oracle SQL File", self)
         self.actionImportMySQL = QAction(u"Import MySQL File", self)
@@ -36,13 +37,13 @@ class MenuBarView(QMenuBar):
         self.actionSakuraTheme = QAction(u"Sakura", self)
         self.actionNeonTheme = QAction(u"Neon", self)
 
-        self.actionCreateTable = QAction(QIcon("app\\icons\\table.png"), u"Create Table", self)
+        self.actionCreateTable = QAction(QIcon(resource_path("icons", "table.png")), u"Create Table", self)
 
-        self.actionCreate_1_1_Rel = QAction(QIcon("app\\icons\\1_1_rel.png"), u"Create 1:1 Relationship", self)
-        self.actionCreate_1_n_Rel = QAction(QIcon("app\\icons\\1_n_rel.png"), u"Create 1:n Relationship", self)
-        self.actionCreate_n_n_Rel = QAction(QIcon("app\\icons\\n_n_rel.png"), u"Create n:n Relationship", self)
+        self.actionCreate_1_1_Rel = QAction(QIcon(resource_path("icons", "1_1_rel.png")), u"Create 1:1 Relationship", self)
+        self.actionCreate_1_n_Rel = QAction(QIcon(resource_path("icons", "1_n_rel.png")), u"Create 1:n Relationship", self)
+        self.actionCreate_n_n_Rel = QAction(QIcon(resource_path("icons", "n_n_rel.png")), u"Create n:n Relationship", self)
 
-        self.actionCreateInheritance = QAction(QIcon("app\\icons\\inheritance.png"),
+        self.actionCreateInheritance = QAction(QIcon(resource_path("icons", "inheritance.png")),
                                                u"Create Inheritance Relationship", self)
 
         self.__menuFile.addMenu(self.__menuImportSQL)

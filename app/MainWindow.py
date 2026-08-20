@@ -40,9 +40,9 @@ class MainWindow(QMainWindow):
         self.__ToolBarView.setupUI()
         self.setMenuBar(self.__MenuBarView)
         self.addToolBar(self.__ToolBarView)
+        self.__ScrollAreaView = ScrollAreaView(self)
 
         # controllers
-        self.__ScrollAreaView = ScrollAreaView(self)
         self.__MainWindowController = MainWindowController(self, self.__MainWindowView)
         self.__ThemesController = ThemesController(app)
         self.__ExportDialogController = ExportDiagramController(self, self.__ScrollAreaView)
@@ -54,7 +54,7 @@ class MainWindow(QMainWindow):
         self.__RelationshipsModel = RelationshipsModel()
         self.__InheritancesModel = InheritancesModel()
 
-        # views
+        # controllers
         self.__GenerateSQLController = GenerateSQLController(self, self.__TablesModel, self.__RelationshipsModel,
                                                              self.__InheritancesModel)
         self.__LoadSQLController = LoadSQLController(self, self.__TablesModel, self.__RelationshipsModel,
@@ -64,10 +64,16 @@ class MainWindow(QMainWindow):
                                                      self.__LoadSQLController, self.__ExportDialogController,
                                                      self.__GenerateSQLController)
         self.__ToolBarController = ToolBarController(self.__ToolBarView, self.__MenuBarController)
+
+        # views
         self.__DrawingAreaView = DrawingAreaView(self.__DrawingAreaController, self.__DrawingAreaModel)
         self.__DrawingAreaView.setupUI()
         self.__ScrollAreaView.setupUI(self.__DrawingAreaView)
+
+        # controllers
         self.__MainWindowController.setWidgetToCentralWidget(self.__ScrollAreaView)
+
+        # views
         self.__TablesView = TablesView(self.__TablesModel, self.__DrawingAreaView)
         self.__RelationshipsView = RelationshipsView(self.__RelationshipsModel, self.__DrawingAreaView)
         self.__InheritancesView = InheritancesView(self.__InheritancesModel, self.__DrawingAreaView)

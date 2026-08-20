@@ -17,7 +17,13 @@ class MainWindowView:
         self.__retranslateUi(parentWindow)
 
     def __retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"SQL Generator From Diagram", None))
+        MainWindow.setWindowTitle(
+            QCoreApplication.translate(
+                    "MainWindow", 
+                    u"SQL Generator From Diagram", 
+                    None
+                )
+            )
 
     def setWidgetToCentralWidget(self, widget):
         self.__horizontalLayout.addWidget(widget)

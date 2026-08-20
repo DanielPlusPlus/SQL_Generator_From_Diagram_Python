@@ -11,7 +11,6 @@ class RelationshipsView:
     def __init__(self, RelationshipsModel, ParentWindow):
         self.RelationshipsModel = RelationshipsModel
         self.ParentWindow = ParentWindow
-        self.drawRelationships()
 
     def __getTableRect(self, table):
         if table.getTableCollapseStatus():

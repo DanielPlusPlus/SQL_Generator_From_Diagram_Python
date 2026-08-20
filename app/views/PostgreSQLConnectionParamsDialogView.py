@@ -9,7 +9,7 @@ from app.views.interfaces.ConnectionParamsDialogInterface import ConnectionParam
 class PostgreSQLConnectionParamsDialogView(QDialog, ConnectionParamsDialogInterface):
     def __init__(self, ParentWindow):
         super().__init__(ParentWindow)
-        self.__usernameRegex = QRegularExpression(r'^[A-Za-z_][A-Za-z0-9_]$')
+        self.__usernameRegex = QRegularExpression(r'^[A-Za-z_][A-Za-z0-9_]+$')
         self.__passwordRegex = QRegularExpression(r'^[^\s/]+$')
         self.__hostRegex = QRegularExpression(r'^[A-Za-z0-9.-]+$')
         self.__portRegex = QRegularExpression(r'^(?:[1-9][0-9]{0,4}|6553[0-5]|[1-9][0-9]{0,3}|[0-9]{1,5})$')
